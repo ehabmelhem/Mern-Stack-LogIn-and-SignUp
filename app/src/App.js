@@ -1,9 +1,17 @@
 import "./App.css";
-
+import { useEffect } from "react";
 function App() {
+  useEffect(() => {
+    fetch("/work")
+      .then((r) => r.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }, []);
   return (
     <div className="app">
-      <h1>this is react app</h1>
+      <button className="btn">Login</button>
+      <button className="btn">Signup</button>
     </div>
   );
 }

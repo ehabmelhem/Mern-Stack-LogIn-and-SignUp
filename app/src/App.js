@@ -1,5 +1,7 @@
 import "./App.css";
 import { useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import SignUp from "./SignUp";
 function App() {
   useEffect(() => {
     fetch("/work")
@@ -9,10 +11,17 @@ function App() {
       });
   }, []);
   return (
-    <div className="app">
-      <button className="btn">Login</button>
-      <button className="btn">Signup</button>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/signup">
+          <SignUp />
+        </Route>
+        <div className="app">
+          <button className="btn">Login</button>
+          <button className="btn">Signup</button>
+        </div>
+      </Switch>
+    </Router>
   );
 }
 

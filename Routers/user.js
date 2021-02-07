@@ -1,5 +1,5 @@
 const userControler = require("../Controler/user");
 const router = require("express").Router();
 //methodes here
-router.get("/work", userControler.work);
+router.post("/add-user", userControler.addUser);
 module.exports = router;

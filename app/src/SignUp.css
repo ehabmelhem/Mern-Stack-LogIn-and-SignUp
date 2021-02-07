@@ -1,0 +1,28 @@
+.signup {
+  height: 100vh;
+  background-color: white;
+}
+.grid {
+  border: 1px solid gray;
+  padding: 20px;
+  background-color: rgb(190, 190, 190);
+  border-radius: 20px;
+  width: fit-content;
+  margin-left: 43vw;
+  position: relative;
+  top: 150px;
+  text-align: center;
+}
+.grid > input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 999px;
+}
+label {
+  font-weight: 600;
+  font-size: small;
+  color: rgb(241, 52, 52);
+}

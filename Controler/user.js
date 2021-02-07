@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 
-exports.work = (req, res) => {
-  res.send({ messege: "hello from controller" });
+exports.addUser = (req, res) => {
+  const { username, password } = req.body;
+  res.send({ username, password });
 };

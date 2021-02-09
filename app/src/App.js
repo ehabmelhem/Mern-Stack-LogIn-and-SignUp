@@ -2,23 +2,29 @@ import "./App.css";
 import { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import SignUp from "./SignUp";
+import Login from "./Login";
+import Result from "./Result";
 function App() {
-  useEffect(() => {
-    fetch("/work")
-      .then((r) => r.json())
-      .then((data) => {
-        console.log(data);
-      });
-  }, []);
   return (
     <Router>
       <Switch>
+        <Route path="/result">
+          <Result />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
         <Route path="/signup">
           <SignUp />
         </Route>
         <div className="app">
-          <button className="btn">Login</button>
-          <button className="btn">Signup</button>
+          <Link to="/login">
+            <button className="btn">Login</button>
+          </Link>
+
+          <Link to="/signup">
+            <button className="btn">Signup</button>
+          </Link>
         </div>
       </Switch>
     </Router>

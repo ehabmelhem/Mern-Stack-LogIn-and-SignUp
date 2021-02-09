@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const routing = require("./Routers/user");
 const app = express();
 app.use(bodyParser.json());
+app.use(express.static("./app/build"));
 app.use("/", routing);
 
 const port = process.env.PORT || 3002;

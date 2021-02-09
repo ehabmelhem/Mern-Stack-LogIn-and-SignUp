@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./SignUp.css";
-function SignUp() {
-  const [username, setUser] = useState("");
-  const [password, setPass] = useState("");
-  const [flag, setFlag] = useState(false);
-  const [validation, setValidation] = useState(false);
-  const handelClick = (e) => {
-    e.preventDefault();
+function addUser(username, password) {
+  return new Promise((resolve, reject) => {
     fetch("/add-user", {
       method: "POST",
       body: JSON.stringify({ username, password }),
@@ -14,7 +9,27 @@ function SignUp() {
     })
       .then((r) => r.json())
       .then((data) => {
-        console.log(data);
+        if (data.index === 1) {
+          resolve("its Good");
+        } else {
+          reject("there is a problem");
+        }
+      });
+  });
+}
+function SignUp() {
+  const [username, setUser] = useState("");
+  const [password, setPass] = useState("");
+  const [flag, setFlag] = useState(false);
+  const [validation, setValidation] = useState(false);
+  const handelClick = async (e) => {
+    e.preventDefault();
+    await addUser(username, password)
+      .then((messege) => {
+        console.log(messege);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
   return (
